@@ -38,7 +38,7 @@ export class TicTacToeComponent implements OnInit {
   }
 
   private isWinner(player: string): boolean {
-    return this.checkRows(player);
+    return this.checkRows(player) || this.checkColumns(player);
   }
 
   private checkRows(player: string): boolean {
@@ -47,6 +47,19 @@ export class TicTacToeComponent implements OnInit {
         this.board[row][0] === player &&
         this.board[row][1] === player &&
         this.board[row][2] === player
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private checkColumns(player: string): boolean {
+    for (let column = 0; column < this.board.length; column++) {
+      if (
+        this.board[0][column] === player &&
+        this.board[1][column] === player &&
+        this.board[2][column] === player
       ) {
         return true;
       }
