@@ -23,6 +23,7 @@ export class TicTacToeComponent {
 
   processPlay(row: number, column: number): void {
     this.board[row][column] = this.currentPlayer;
+    this.currentPlayer = (this.currentPlayer === 'O') ? 'X' : 'O';
   }
 
 }
