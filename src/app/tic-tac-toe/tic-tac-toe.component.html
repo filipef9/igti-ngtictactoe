@@ -1,20 +1,20 @@
-<p>Jogador atual: O</p>
-<p>Vencedor: </p>
+<p>Jogador atual: {{ currentPlayer }}</p>
+<p>Vencedor: {{ winner }}</p>
 <button id="btnReiniciarPartida">Reiniciar partida</button>
 <table>
   <tr>
-    <td>a</td>
-    <td>b</td>
-    <td>c</td>
+    <td>{{ board[0][0] }}</td>
+    <td>{{ board[0][1] }}</td>
+    <td>{{ board[0][2] }}</td>
   </tr>
   <tr>
-    <td>a</td>
-    <td>b</td>
-    <td>c</td>
+    <td>{{ board[1][0] }}</td>
+    <td>{{ board[1][1] }}</td>
+    <td>{{ board[1][2] }}</td>
   </tr>
   <tr>
-    <td>a</td>
-    <td>b</td>
-    <td>c</td>
+    <td>{{ board[2][0] }}</td>
+    <td>{{ board[2][1] }}</td>
+    <td>{{ board[2][2] }}</td>
   </tr>
 </table>
