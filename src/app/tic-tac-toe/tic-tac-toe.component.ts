@@ -16,9 +16,14 @@ export class TicTacToeComponent implements OnInit {
   }
 
   processPlay(row: number, column: number): void {
-    if (this.board[row][column] === '') {
+    if (this.board[row][column] === '' && this.winner === '') {
       this.board[row][column] = this.currentPlayer;
-      this.currentPlayer = (this.currentPlayer === 'O') ? 'X' : 'O';
+      if (this.isWinner(this.currentPlayer)) {
+        this.winner = this.currentPlayer;
+        this.currentPlayer = '';
+      } else {
+        this.currentPlayer = (this.currentPlayer === 'O') ? 'X' : 'O';
+      }
     }
   }
 
@@ -30,6 +35,23 @@ export class TicTacToeComponent implements OnInit {
       [ '', '', '' ],
       [ '', '', '' ],
     ];
+  }
+
+  private isWinner(player: string): boolean {
+    return this.checkRows(player);
+  }
+
+  private checkRows(player: string): boolean {
+    for (let row = 0; row < this.board.length; row++) {
+      if (
+        this.board[row][0] === player &&
+        this.board[row][1] === player &&
+        this.board[row][2] === player
+      ) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
