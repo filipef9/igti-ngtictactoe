@@ -1,6 +1,6 @@
 <p>Jogador atual: {{ currentPlayer }}</p>
 <p>Vencedor: {{ winner }}</p>
-<button id="btnReiniciarPartida">Reiniciar partida</button>
+<button id="btnReiniciarPartida" (click)="resetMatch()">Reiniciar partida</button>
 <table>
   <tr>
     <td (click)="processPlay(0, 0)">{{ board[0][0] }}</td>

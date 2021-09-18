@@ -5,13 +5,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tic-tac-toe.component.html',
   styleUrls: ['./tic-tac-toe.component.scss']
 })
-export class TicTacToeComponent {
+export class TicTacToeComponent implements OnInit {
 
   currentPlayer: string;
   winner: string;
   board: string[][];
 
-  constructor() {
+  ngOnInit(): void {
+    this.resetMatch();
+  }
+
+  processPlay(row: number, column: number): void {
+    this.board[row][column] = this.currentPlayer;
+    this.currentPlayer = (this.currentPlayer === 'O') ? 'X' : 'O';
+  }
+
+  resetMatch(): void {
     this.currentPlayer = 'O';
     this.winner = '';
     this.board = [
@@ -19,11 +28,6 @@ export class TicTacToeComponent {
       [ '', '', '' ],
       [ '', '', '' ],
     ];
-  }
-
-  processPlay(row: number, column: number): void {
-    this.board[row][column] = this.currentPlayer;
-    this.currentPlayer = (this.currentPlayer === 'O') ? 'X' : 'O';
   }
 
 }
