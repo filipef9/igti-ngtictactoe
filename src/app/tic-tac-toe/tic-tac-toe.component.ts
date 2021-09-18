@@ -16,8 +16,10 @@ export class TicTacToeComponent implements OnInit {
   }
 
   processPlay(row: number, column: number): void {
-    this.board[row][column] = this.currentPlayer;
-    this.currentPlayer = (this.currentPlayer === 'O') ? 'X' : 'O';
+    if (this.board[row][column] === '') {
+      this.board[row][column] = this.currentPlayer;
+      this.currentPlayer = (this.currentPlayer === 'O') ? 'X' : 'O';
+    }
   }
 
   resetMatch(): void {
